@@ -42,24 +42,23 @@ void initialize(void)
 	}
 //  TIM2_init ();
 	gpio_init();
-	adc_init();
-	pwm_init();
+	//adc_init();
+	//pwm_init();
 //  buzzer_init ();
-	usart1_bluetooth_init();
-	hall_sensor_init();
+	//hall_sensor_init();
 //  MPU6050_I2C_Init ();
 //  MPU6050_Initialize ();
+
+	led_on();
+	delay_ms(500);
+	led_off();
 }
 
 int main(void)
 {
 	initialize();
 
-	/* needed for printf */
-	// turn off buffers, so IO occurs immediately
-	setvbuf(stdin, NULL, _IONBF, 0);
-	setvbuf(stdout, NULL, _IONBF, 0);
-	setvbuf(stderr, NULL, _IONBF, 0);
+	while(1); // FIXME
 
 	int value;
 
@@ -82,19 +81,5 @@ int main(void)
 		value = value / 2048;
 
 		motor_set_duty_cycle(value);
-		printf("pot: %d\n", value);
-//    apply_duty_cycle ();
-
-//    balance_controller ();
-
-//    value = (adc_get_phase_a_current_value ());
-//    printf("adc phase a: %d\n", value);
-//    //printf("voltage adc phase a: %d\n\n", ((value * K_ADC_VOLTAGE) / 100));
-//
-
-//
-//    value = (adc_get_battery_voltage_value ());
-//    printf("battery voltage: %d\n", value);
-//    //printf("voltage adc phase c: %d\n\n", ((value * K_ADC_VOLTAGE) / 100));
 	}
 }

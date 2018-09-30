@@ -26,35 +26,35 @@ void pwm_init(void)
 	GPIO_InitTypeDef GPIO_InitStructure;
 
 	// mosfets drivers pins
-	GPIO_InitStructure.GPIO_Pin = PHASE_A_SHUTDOWN__PIN;
+	GPIO_InitStructure.GPIO_Pin = PHASE_A_HI__PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_Init(PHASE_A_SHUTDOWN__PORT, &GPIO_InitStructure);
+	GPIO_Init(PHASE_A_HI__PORT, &GPIO_InitStructure);
 
-	GPIO_InitStructure.GPIO_Pin = PHASE_A_HO_LO__PIN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-	GPIO_Init(PHASE_A_HO_LO__PORT, &GPIO_InitStructure);
-
-	GPIO_InitStructure.GPIO_Pin = PHASE_B_SHUTDOWN__PIN;
+	GPIO_InitStructure.GPIO_Pin = PHASE_A_LO__PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_Init(PHASE_B_SHUTDOWN__PORT, &GPIO_InitStructure);
+	GPIO_Init(PHASE_A_LO__PORT, &GPIO_InitStructure);
 
-	GPIO_InitStructure.GPIO_Pin = PHASE_B_HO_LO__PIN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-	GPIO_Init(PHASE_B_HO_LO__PORT, &GPIO_InitStructure);
-
-	GPIO_InitStructure.GPIO_Pin = PHASE_C_SHUTDOWN__PIN;
+	GPIO_InitStructure.GPIO_Pin = PHASE_B_HI__PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_Init(PHASE_C_SHUTDOWN__PORT, &GPIO_InitStructure);
+	GPIO_Init(PHASE_B_HI__PORT, &GPIO_InitStructure);
 
-	GPIO_InitStructure.GPIO_Pin = PHASE_C_HO_LO__PIN;
+	GPIO_InitStructure.GPIO_Pin = PHASE_B_LO__PIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-	GPIO_Init(PHASE_C_HO_LO__PORT, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+	GPIO_Init(PHASE_B_LO__PORT, &GPIO_InitStructure);
+
+	GPIO_InitStructure.GPIO_Pin = PHASE_C_HI__PIN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+	GPIO_Init(PHASE_C_HI__PORT, &GPIO_InitStructure);
+
+	GPIO_InitStructure.GPIO_Pin = PHASE_C_LO__PIN;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+	GPIO_Init(PHASE_C_LO__PORT, &GPIO_InitStructure);
 
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
@@ -119,17 +119,17 @@ void pwm_init(void)
 
 void enable_phase_a(void)
 {
-	GPIO_SetBits(PHASE_A_SHUTDOWN__PORT, PHASE_A_SHUTDOWN__PIN);
+	//GPIO_SetBits(PHASE_A_SHUTDOWN__PORT, PHASE_A_SHUTDOWN__PIN);
 }
 
 void enable_phase_b(void)
 {
-	GPIO_SetBits(PHASE_B_SHUTDOWN__PORT, PHASE_B_SHUTDOWN__PIN);
+	//GPIO_SetBits(PHASE_B_SHUTDOWN__PORT, PHASE_B_SHUTDOWN__PIN);
 }
 
 void enable_phase_c(void)
 {
-	GPIO_SetBits(PHASE_C_SHUTDOWN__PORT, PHASE_C_SHUTDOWN__PIN);
+	//GPIO_SetBits(PHASE_C_SHUTDOWN__PORT, PHASE_C_SHUTDOWN__PIN);
 }
 
 void set_pwm_phase_a(unsigned int value)

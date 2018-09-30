@@ -50,6 +50,7 @@
 #ifndef GPIO_H
 #define GPIO_H
 
+#if 0
 #define CURRENT_PHASE_A__PIN      GPIO_Pin_3
 #define LED_1_BATTERY_INDICATOR__PIN        GPIO_Pin_15
 #define LED_1_BATTERY_INDICATOR__PORT       GPIOB
@@ -59,32 +60,36 @@
 
 #define BATTERY_VOLTAGE__PIN      GPIO_Pin_4
 #define BATTERY_VOLTAGE__PORT     GPIOA
+#endif
 
-#define HALL_SENSOR_A__PIN        GPIO_Pin_12
+#define HALL_SENSOR_A__PIN        GPIO_Pin_4
 #define HALL_SENSOR_A__PORT       GPIOB
-#define HALL_SENSOR_B__PIN        GPIO_Pin_13
+#define HALL_SENSOR_B__PIN        GPIO_Pin_5
 #define HALL_SENSOR_B__PORT       GPIOB
-#define HALL_SENSOR_C__PIN        GPIO_Pin_14
+#define HALL_SENSOR_C__PIN        GPIO_Pin_0
 #define HALL_SENSOR_C__PORT       GPIOB
 #define HALL_SENSORS__PORT        GPIOB
 
+#if 0
 #define MPU6050_SCL__PIN          GPIO_Pin_6
 #define MPU6050_SCL__PORT         GPIOB
 #define MPU6050_SDA__PIN          GPIO_Pin_7
 #define MPU6050_SDA__PORT         GPIOB
+#endif
 
-#define PHASE_A_HO_LO__PIN        GPIO_Pin_1
-#define PHASE_A_HO_LO__PORT       GPIOB
-#define PHASE_B_HO_LO__PIN        GPIO_Pin_0
-#define PHASE_B_HO_LO__PORT       GPIOB
-#define PHASE_C_HO_LO__PIN        GPIO_Pin_6
-#define PHASE_C_HO_LO__PORT       GPIOA
-#define PHASE_A_SHUTDOWN__PIN     GPIO_Pin_2
-#define PHASE_A_SHUTDOWN__PORT    GPIOB
-#define PHASE_B_SHUTDOWN__PIN     GPIO_Pin_7
-#define PHASE_B_SHUTDOWN__PORT    GPIOA
-#define PHASE_C_SHUTDOWN__PIN     GPIO_Pin_5
-#define PHASE_C_SHUTDOWN__PORT    GPIOA
+#define PHASE_A_HI__PIN           GPIO_Pin_8
+#define PHASE_A_HI__PORT          GPIOA
+#define PHASE_A_LO__PIN           GPIO_Pin_13
+#define PHASE_A_LO__PORT          GPIOB
+#define PHASE_B_HI__PIN           GPIO_Pin_9
+#define PHASE_B_HI__PORT          GPIOA
+#define PHASE_B_LO__PIN           GPIO_Pin_14
+#define PHASE_B_LO__PORT          GPIOB
+#define PHASE_C_HI__PIN           GPIO_Pin_10
+#define PHASE_C_HI__PORT          GPIOA
+#define PHASE_C_LO__PIN           GPIO_Pin_15
+#define PHASE_C_LO__PORT          GPIOB
+#if 0
 
 #define USART_TX__PIN             GPIO_Pin_9
 #define USART_TX__PORT            GPIOA
@@ -93,15 +98,10 @@
 
 #define BUZZER__PIN               GPIO_Pin_8
 #define BUZZER__PORT              GPIOA
+#endif
 
-#define LED_1_BATTERY_INDICATOR__PIN        GPIO_Pin_15
-#define LED_1_BATTERY_INDICATOR__PORT       GPIOB
-#define LED_2_BATTERY_INDICATOR__PIN        GPIO_Pin_11
-#define LED_2_BATTERY_INDICATOR__PORT       GPIOA
-#define LED_3_BATTERY_INDICATOR__PIN        GPIO_Pin_12
-#define LED_3_BATTERY_INDICATOR__PORT       GPIOA
-#define LED_4_BATTERY_INDICATOR__PIN        GPIO_Pin_5
-#define LED_4_BATTERY_INDICATOR__PORT       GPIOB
+#define GLED__PIN               GPIO_Pin_1
+#define GLED__PORT              GPIOD
 
 void gpio_init(void);
 

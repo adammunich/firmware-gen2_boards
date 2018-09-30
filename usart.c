@@ -12,6 +12,7 @@
 
 void usart1_bluetooth_init(void)
 {
+#if 0
 	GPIO_InitTypeDef GPIO_InitStructure;
 
 	// USART for bluetooth module pins
@@ -41,28 +42,35 @@ void usart1_bluetooth_init(void)
 
 	/* Enable the USART1 */
 	USART_Cmd(USART1, ENABLE);
+#endif
 }
 
 unsigned char usart1_send_char(unsigned char c)
 {
+#if 0
 	while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
 
 	USART_SendData(USART1, c);
 
 	return (c);
+#endif
 }
 
 void usart1_send_str(unsigned char *data)
 {
+#if 0
 	unsigned char i = 0, r;
 
 	while((r = data[i++]))
 		usart1_send_char(r);
+#endif
 }
 
 unsigned char usart1_receive_char(void)
 {
+#if 0
 	while(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
 
 	return (USART_ReceiveData(USART1));
+#endif
 }
