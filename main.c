@@ -8,6 +8,11 @@
 
 #include "stm32f10x.h"
 #include "gpio.h"
+#include "adc.h"
+#include "pwm.h"
+#include "usart.h"
+#include "hall_sensors.h"
+#include "motor.h"
 #include "main.h"
 #include "stdio.h"
 #include "leds.h"

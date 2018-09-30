@@ -19,7 +19,7 @@ void enable_phase_b (void);
 void enable_phase_c (void);
 void set_pwm_phase_a (unsigned int value);
 void set_pwm_phase_b (unsigned int value);
-void set_pwm_phase_a (unsigned int value);
+void set_pwm_phase_c (unsigned int value);
 
 void pwm_init (void);
 void pwm_set_duty_cycle (int value);
