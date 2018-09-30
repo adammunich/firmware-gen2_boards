@@ -39,19 +39,19 @@
 // -4.7A | 1.65V
 // about 12.7mv for each 1A
 
-#define K_ADC_VOLTAGE 161 // amplified 100k
+#define K_ADC_VOLTAGE 161		// amplified 100k
 
 // Motor
-#define MOTOR_MAX_CURRENT	1 // Define max motor current (used on adc.c)
-#define MOTOR_MAX_SPEED 	20000 // meter per hour
-//#define MOTOR_MIN_SPEED 	5000 // meter per hour -- walking speed is 5km/h
-#define MOTOR_MIN_SPEED 	0 // meter per hour -- walking speed is 5km/h
-#define MOTOR_SPEED_CONVERSION 	0.5574 // convert hall sensor signal period (each 10us) to motor speed
+#define MOTOR_MAX_CURRENT	1	// Define max motor current (used on adc.c)
+#define MOTOR_MAX_SPEED 	20000	// meter per hour
+//#define MOTOR_MIN_SPEED   5000 // meter per hour -- walking speed is 5km/h
+#define MOTOR_MIN_SPEED 	0	// meter per hour -- walking speed is 5km/h
+#define MOTOR_SPEED_CONVERSION 	0.5574	// convert hall sensor signal period (each 10us) to motor speed
 
 extern unsigned int machine_state;
-void delay_ms (unsigned int ms);
+void delay_ms(unsigned int ms);
 void printDouble(double v, int decimalDigits);
 
 
 
-#endif /* _MAIN_H_ */
+#endif							/* _MAIN_H_ */

@@ -22,26 +22,25 @@
 #define BLDC_NORMAL		0
 #define BLDC_OVER_MAX_CURRENT	1
 
-struct Bldc_phase_state
-{
-  unsigned int a;
-  unsigned int b;
-  unsigned int c;
+struct Bldc_phase_state {
+	unsigned int a;
+	unsigned int b;
+	unsigned int c;
 };
 
 extern struct Bldc_phase_state bldc_phase_state;
 
-void commutation_disable (void);
-void commutate (void);
-unsigned int get_current_sector (void);
-unsigned int increment_sector (unsigned int sector);
-unsigned int decrement_sector (unsigned int sector);
-void bldc_set_direction (unsigned int direction);
-unsigned int bldc_get_direction (void);
-void bldc_set_state (unsigned int state);
-unsigned int bldc_get_state (void);
-void apply_duty_cycle (void);
-void commutate_timer (void);
-void motor_set_duty_cycle (int value);
+void commutation_disable(void);
+void commutate(void);
+unsigned int get_current_sector(void);
+unsigned int increment_sector(unsigned int sector);
+unsigned int decrement_sector(unsigned int sector);
+void bldc_set_direction(unsigned int direction);
+unsigned int bldc_get_direction(void);
+void bldc_set_state(unsigned int state);
+unsigned int bldc_get_state(void);
+void apply_duty_cycle(void);
+void commutate_timer(void);
+void motor_set_duty_cycle(int value);
 
-#endif /* _MOTOR_H_ */
+#endif							/* _MOTOR_H_ */

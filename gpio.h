@@ -103,6 +103,6 @@
 #define LED_4_BATTERY_INDICATOR__PIN        GPIO_Pin_5
 #define LED_4_BATTERY_INDICATOR__PORT       GPIOB
 
-void gpio_init (void);
+void gpio_init(void);
 
-#endif /* GPIO_H_ */
+#endif							/* GPIO_H_ */

@@ -20,70 +20,69 @@
 
 static unsigned int _ms;
 
-void delay_ms (unsigned int ms)
+void delay_ms(unsigned int ms)
 {
-  _ms = 1;
-  while (ms >= _ms) ;
+	_ms = 1;
+	while(ms >= _ms);
 }
 
-void SysTick_Handler(void) // runs every 1ms
+void SysTick_Handler(void)		// runs every 1ms
 {
-  // for delay_ms ()
-  _ms++;
+	// for delay_ms ()
+	_ms++;
 }
 
-void initialize (void)
+void initialize(void)
 {
-  /* Setup SysTick Timer for 1 millisecond interrupts, also enables Systick and Systick-Interrupt */
-  if (SysTick_Config(SystemCoreClock / 1000))
-  {
-    /* Capture error */
-    while (1);
-  }
-
+	/* Setup SysTick Timer for 1 millisecond interrupts, also enables Systick and Systick-Interrupt */
+	if(SysTick_Config(SystemCoreClock / 1000))
+	{
+		/* Capture error */
+		while(1);
+	}
 //  TIM2_init ();
-  gpio_init ();
-  adc_init ();
-  pwm_init ();
+	gpio_init();
+	adc_init();
+	pwm_init();
 //  buzzer_init ();
-  usart1_bluetooth_init ();
-  hall_sensor_init ();
+	usart1_bluetooth_init();
+	hall_sensor_init();
 //  MPU6050_I2C_Init ();
 //  MPU6050_Initialize ();
 }
 
 int main(void)
 {
-  initialize ();
+	initialize();
 
-  /* needed for printf */
-  // turn off buffers, so IO occurs immediately
-  setvbuf(stdin, NULL, _IONBF, 0);
-  setvbuf(stdout, NULL, _IONBF, 0);
-  setvbuf(stderr, NULL, _IONBF, 0);
+	/* needed for printf */
+	// turn off buffers, so IO occurs immediately
+	setvbuf(stdin, NULL, _IONBF, 0);
+	setvbuf(stdout, NULL, _IONBF, 0);
+	setvbuf(stderr, NULL, _IONBF, 0);
 
-  int value;
+	int value;
 
-  enable_phase_a ();
-  enable_phase_b ();
-  enable_phase_c ();
+	enable_phase_a();
+	enable_phase_b();
+	enable_phase_c();
 
-  while (1)
-  {
+	while(1)
+	{
 
-    delay_ms (10);
+		delay_ms(10);
 
-    value = adc_get_potentiometer_value ();
-    value = ema_filter (value);
+		value = adc_get_potentiometer_value();
+		value = ema_filter(value);
 
-    //value = (value * 1000) / 4096;
+		//value = (value * 1000) / 4096;
 
-    value = value - 2048;
-    value = value * 1000;
-    value = value / 2048;
+		value = value - 2048;
+		value = value * 1000;
+		value = value / 2048;
 
-    motor_set_duty_cycle (value);
-    printf("pot: %d\n", value);
+		motor_set_duty_cycle(value);
+		printf("pot: %d\n", value);
 //    apply_duty_cycle ();
 
 //    balance_controller ();
@@ -97,6 +96,5 @@ int main(void)
 //    value = (adc_get_battery_voltage_value ());
 //    printf("battery voltage: %d\n", value);
 //    //printf("voltage adc phase c: %d\n\n", ((value * K_ADC_VOLTAGE) / 100));
-  }
+	}
 }
-

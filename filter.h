@@ -11,6 +11,6 @@
 
 #define EMA_ALPHA 1
 
-unsigned ema_filter (unsigned int current_value);
+unsigned ema_filter(unsigned int current_value);
 
 #endif

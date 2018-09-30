@@ -11,7 +11,7 @@
 
 //#define HALL_SENSORS_INTERRUPT EXTI15_10_IRQHandler
 
-void hall_sensor_init (void);
-unsigned int get_hall_sensors_us (void);
+void hall_sensor_init(void);
+unsigned int get_hall_sensors_us(void);
 
 #endif
