@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/fr.ac6.managedbuild.config.gnu.cross.exe.debug.692692071/PATH/delimiter=\:
+environment/project/fr.ac6.managedbuild.config.gnu.cross.exe.debug.692692071/PATH/operation=replace
+environment/project/fr.ac6.managedbuild.config.gnu.cross.exe.debug.692692071/PATH/value=/home/kimballr/.arduino15/packages/arduino/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin\:/home/kimballr/opt64/eclipse/plugins/fr.ac6.mcu.externaltools.linux64_1.3.0.201507241112/tools/make\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/usr/lib/jvm/java-8-oracle/bin\:/usr/lib/jvm/java-8-oracle/db/bin\:/usr/lib/jvm/java-8-oracle/jre/bin\:/usr/local/bin\:/home/kimballr/opt64/bin
+environment/project/fr.ac6.managedbuild.config.gnu.cross.exe.debug.692692071/append=true
+environment/project/fr.ac6.managedbuild.config.gnu.cross.exe.debug.692692071/appendContributed=true
