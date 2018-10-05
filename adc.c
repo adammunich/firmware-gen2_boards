@@ -28,6 +28,7 @@ void adc_init(void)
 						   ENABLE);
 
 	DMA_InitTypeDef DMA_InitStructure;
+
 	/* DMA1 channel1 configuration ---------------------------------------------- */
 	DMA_DeInit(DMA1_Channel1);
 	DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t) & (ADC1->DR);
@@ -48,27 +49,35 @@ void adc_init(void)
 	DMA_Cmd(DMA1_Channel1, ENABLE);
 
 	ADC_InitTypeDef ADC_InitStructure;
+
 	/* ADC1 configuration ------------------------------------------------------ */
 	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;
 	ADC_InitStructure.ADC_ScanConvMode = ENABLE;
 	ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;
 	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
 	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
-	ADC_InitStructure.ADC_NbrOfChannel = 4;
+	ADC_InitStructure.ADC_NbrOfChannel = 3;
 	ADC_Init(ADC1, &ADC_InitStructure);
 
 	/* ADC1 regular channel3 configuration */
+	// Channel 3 - A on ninebot, 1 in sequence for this script
 	ADC_RegularChannelConfig(ADC1, ADC_Channel_3, 1,
 							 ADC_SampleTime_55Cycles5);
-	/* ADC1 regular channel2 configuration */
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_2, 2,
-							 ADC_SampleTime_55Cycles5);
+
 	/* ADC1 regular channel4 configuration */
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_4, 3,
+	// Channel 4 - C on ninebot, 2 in sequence for this script
+	ADC_RegularChannelConfig(ADC1, ADC_Channel_4, 2,
 							 ADC_SampleTime_55Cycles5);
-	/* ADC1 regular channel0 configuration */
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, 4,
+
+	// This should be the battery voltage but... idk what pin?
+	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, 3,
+							ADC_SampleTime_55Cycles5);
+
+	/*
+	// Channel 5, - B on ninebot, disable for this script
+	ADC_RegularChannelConfig(ADC1, ADC_Channel_5, 5,
 							 ADC_SampleTime_55Cycles5);
+	*/
 
 	/* Enable ADC1 DMA */
 	ADC_DMACmd(ADC1, ENABLE);
@@ -96,20 +105,26 @@ unsigned int adc_get_phase_a_current_value(void)
 	return adc_values[0];
 }
 
+
 // output a value 0 - 4095
 unsigned int adc_get_phase_c_current_value(void)
 {
 	return adc_values[1];
 }
 
+
 // output a value 0 - 4095
 unsigned int adc_get_battery_voltage_value(void)
 {
-	return adc_values[2];
+	//return adc_values[2];
+	// arbitrary
+	return 1024;
 }
+
+
 
 // output a value 0 - 4095
 unsigned int adc_get_potentiometer_value(void)
 {
-	return adc_values[3];
+	return 0; //return adc_values[3];
 }
