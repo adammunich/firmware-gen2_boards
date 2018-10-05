@@ -48,16 +48,17 @@ LFLAGS  = -Tstm32_flash.ld -L/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m -lgcc -lm 
 #LFLAGS += --specs=nano.specs # to use newlib nano
 #LFLAGS += -u _printf_float # newlib nano printf use floats
 #LFLAGS += -u _scanf_float # newlib nano scanf use floats
-CPFLAGS = -Obinary 
+CPFLAGSB = -Obinary 
+CPFLAGSH = -Oihex
 ODFLAGS = -S
 
 SOURCES=$(shell find ./ -type f -iname '*.c')
 OBJECTS=$(foreach x, $(basename $(SOURCES)), $(x).o)
 
-all: main.bin size
+all: main.bin main.hex size
 
 clean: 
-	rm -f main.lst main.elf main.bin
+	rm -f main.lst main.elf main.bin main.hex
 	find *.o | xargs rm
 
 flash: main.bin 
@@ -69,8 +70,12 @@ size:
 
 main.bin: main.elf
 	@echo "...copying"
-	$(CP) $(CPFLAGS) main.elf main.bin
+	$(CP) $(CPFLAGSB) main.elf main.bin
 	$(OD) $(ODFLAGS) main.elf > main.lst
+
+main.hex: main.elf
+	@echo "...copying"
+	$(CP) $(CPFLAGSH) main.elf main.hex
 
 main.elf: $(OBJECTS) startup_stm32f10x_md.o
 	@echo "..linking"
