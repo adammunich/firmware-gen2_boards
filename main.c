@@ -43,12 +43,10 @@ void initialize(void)
 //  TIM2_init ();
 	gpio_init();
 	//adc_init();
-	//pwm_init();
-//  buzzer_init ();
+	pwm_init();
 	//hall_sensor_init();
-//  MPU6050_I2C_Init ();
-//  MPU6050_Initialize ();
 
+	leds_init();
 	led_on();
 	delay_ms(500);
 	led_off();
@@ -57,6 +55,9 @@ void initialize(void)
 int main(void)
 {
 	initialize();
+	set_pwm_phase_a(512);
+	set_pwm_phase_b(512);
+	set_pwm_phase_c(512);
 
 	while(1); // FIXME
 
