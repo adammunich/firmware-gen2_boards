@@ -50,37 +50,36 @@
 
 /* Ninebot Connections
  *
- * PIN				        | IN/OUT| Works?|Function
+ * PIN			  | IN/OUT| Did we map? | Works? | Function
  * ----------------------------------------------------------
  *
- * PA3  (ADC12_IN3)   | in  | ??  | current_phase_A
- * PA4  (ADC12_IN4)   | in  | ??  | current_phase_C
- * PA5  (ADC12_IN5)   | in  | ??  | current_phase_B
+ * PA3  (ADC12_IN3)   | in  | yes | ?? | current_phase_A
+ * PA4  (ADC12_IN4)   | in  | yes | ?? | current_phase_C
+ * PA5  (ADC12_IN5)   | in  | no  | ?? | current_phase_B
  *
- * PB4  (TIM3_CH3)    | in  | ??  | Hall_sensor_A
- * PB5                | in  | ??  | Hall_sensor_B
- * PB0                | in  | ??  | Hall_sensor_C
+ * PB4  (TIM3_CH3)    | in  | yes | ?? | Hall_sensor_A
+ * PB5                | in  | yes | ?? | Hall_sensor_B
+ * PB0                | in  | yes | ?? | Hall_sensor_C
  *
- * PA8  (TIM1_CH1)    | out | ??  | phase_A-HI
- * PB13 (TIM1_CH1N)   | out | ??  | phase_A-LO
- * PA9  (TIM1_CH2)    | out | ??  | phase_B-HI
- * PB14 (TIM1_CH2N)   | out | ??  | phase_B-LO
- * PA10 (TIM1_CH3)    | out | ??  | phase_C-HI
- * PA15 (TIM1_CH3N)   | out | ??  | phase_C-LO
+ * PA8  (TIM1_CH1)    | out | maybe | ?? | phase_A-HI
+ * PB13 (TIM1_CH1N)   | out | maybe | ?? | phase_A-LO
+ * PA9  (TIM1_CH2)    | out | maybe | ?? | phase_B-HI
+ * PB14 (TIM1_CH2N)   | out | maybe | ?? | phase_B-LO
+ * PA10 (TIM1_CH3)    | out | maybe | ?? | phase_C-HI
+ * PA15 (TIM1_CH3N)   | out | maybe | ?? | phase_C-LO
  *
- * PB6  (USART1_TX)   | ??  | ??  | "T on 4 pin header"
+ * PB6  (USART1_TX)   | ??  | no  | ?? | "T on 4 pin header"
  *
- * PB10 (USART3_TX)   | out | ??  | "T on 3 pin header"
- * PB11 (USART3_RX)   | in  | ??  | "R on 3 pin header"
- * PA15 			  | out | ??  | Brake light transistor
+ * PB10 (USART3_TX)   | out | yes | ?? | "T on 3 pin header"
+ * PB11 (USART3_RX)   | in  | yes | ?? | "R on 3 pin header"
+ * PA15 			  | out | no  | ?? | Brake light transistor
  *
- * PD1                | out | ??  | LED_1
+ * PD1                | out | yes | ?? | LED_1
  *
  */
 
 #ifndef GPIO_H
 #define GPIO_H
-
 
 #if 0
 #define LED_1_BATTERY_INDICATOR__PIN        GPIO_Pin_15
@@ -135,8 +134,8 @@
 #define BUZZER__PORT              GPIOA
 #endif
 
-#define GLED__PIN               GPIO_Pin_1
-#define GLED__PORT              GPIOD
+#define GLED__PIN                 GPIO_Pin_1
+#define GLED__PORT                GPIOD
 
 void gpio_init(void);
 
