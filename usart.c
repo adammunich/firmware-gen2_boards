@@ -12,7 +12,6 @@
 
 void usart1_bluetooth_init(void)
 {
-#if 0
 	GPIO_InitTypeDef GPIO_InitStructure;
 
 	// USART for bluetooth module pins
@@ -27,8 +26,11 @@ void usart1_bluetooth_init(void)
 	GPIO_Init(USART_TX__PORT, &GPIO_InitStructure);
 
 	/* Enable GPIO clock */
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_AFIO,
-						   ENABLE);
+	//RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_AFIO,
+	//					   ENABLE);
+
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3,
+							ENABLE);
 
 	USART_InitTypeDef USART_InitStructure;
 	USART_InitStructure.USART_BaudRate = 115200;
@@ -38,19 +40,22 @@ void usart1_bluetooth_init(void)
 	USART_InitStructure.USART_HardwareFlowControl =
 		USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-	USART_Init(USART1, &USART_InitStructure);
+	//USART_Init(USART1, &USART_InitStructure);
+	USART_Init(USART3, &USART_InitStructure);
 
 	/* Enable the USART1 */
-	USART_Cmd(USART1, ENABLE);
-#endif
+	//USART_Cmd(USART1, ENABLE);
+	USART_Cmd(USART3, ENABLE);
 }
 
 unsigned char usart1_send_char(unsigned char c)
 {
 #if 0
-	while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+	//while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+	while(USART_GetFlagStatus(USART3, USART_FLAG_TXE) == RESET);
 
-	USART_SendData(USART1, c);
+	//USART_SendData(USART1, c);
+	USART_SendData(USART3, c);
 
 	return (c);
 #endif
@@ -69,8 +74,10 @@ void usart1_send_str(unsigned char *data)
 unsigned char usart1_receive_char(void)
 {
 #if 0
-	while(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
+	//while(USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
+	while(USART_GetFlagStatus(USART3, USART_FLAG_RXNE) == RESET);
 
-	return (USART_ReceiveData(USART1));
+	//return (USART_ReceiveData(USART1));
+	return (USART_ReceiveData(USART3));
 #endif
 }

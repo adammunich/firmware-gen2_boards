@@ -81,14 +81,18 @@
 #ifndef GPIO_H
 #define GPIO_H
 
+
 #if 0
-#define CURRENT_PHASE_A__PIN      GPIO_Pin_3
 #define LED_1_BATTERY_INDICATOR__PIN        GPIO_Pin_15
 #define LED_1_BATTERY_INDICATOR__PORT       GPIOB
+#endif
+
+#define CURRENT_PHASE_A__PIN      GPIO_Pin_3
 #define CURRENT_PHASE_A__PORT     GPIOA
 #define CURRENT_PHASE_C__PIN      GPIO_Pin_2
 #define CURRENT_PHASE_C__PORT     GPIOA
 
+#if 0
 #define BATTERY_VOLTAGE__PIN      GPIO_Pin_4
 #define BATTERY_VOLTAGE__PORT     GPIOA
 #endif
@@ -120,13 +124,13 @@
 #define PHASE_C_HI__PORT          GPIOA
 #define PHASE_C_LO__PIN           GPIO_Pin_15
 #define PHASE_C_LO__PORT          GPIOB
+
+#define USART_TX__PIN             GPIO_Pin_10
+#define USART_TX__PORT            GPIOB
+#define USART_RX__PIN             GPIO_Pin_11
+#define USART_RX__PORT            GPIOB
+
 #if 0
-
-#define USART_TX__PIN             GPIO_Pin_9
-#define USART_TX__PORT            GPIOA
-#define USART_RX__PIN             GPIO_Pin_10
-#define USART_RX__PORT            GPIOA
-
 #define BUZZER__PIN               GPIO_Pin_8
 #define BUZZER__PORT              GPIOA
 #endif
