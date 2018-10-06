@@ -70,7 +70,7 @@ void adc_init(void)
 							 ADC_SampleTime_55Cycles5);
 
 	// This should be the battery voltage but... idk what pin?
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, 3,
+	ADC_RegularChannelConfig(ADC1, ADC_Channel_2, 3,
 							ADC_SampleTime_55Cycles5);
 
 	/*
@@ -116,9 +116,7 @@ unsigned int adc_get_phase_c_current_value(void)
 // output a value 0 - 4095
 unsigned int adc_get_battery_voltage_value(void)
 {
-	//return adc_values[2];
-	// arbitrary
-	return 1024;
+	return adc_values[2];
 }
 
 

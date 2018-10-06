@@ -53,6 +53,8 @@
  * PIN			  | IN/OUT| Did we map? | Works? | Function
  * ----------------------------------------------------------
  *
+ * PA2  (ADC12_IN2)   | in  | yes | ?? | candidate for voltage sense
+ *
  * PA3  (ADC12_IN3)   | in  | yes | ?? | current_phase_A
  * PA4  (ADC12_IN4)   | in  | yes | ?? | current_phase_C
  * PA5  (ADC12_IN5)   | in  | no  | ?? | current_phase_B
